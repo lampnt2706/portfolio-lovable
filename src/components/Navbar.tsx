@@ -28,7 +28,7 @@ const Navbar = () => {
           onClick={(e) => handleClick(e, "#")}
           className="font-mono text-sm font-semibold text-foreground"
         >
-          <span className="text-primary">&lt;</span>Lam<span className="text-primary">/&gt;</span>
+          <span className="text-primary">&lt;</span>Pham Ngoc Tung Lam<span className="text-primary">/&gt;</span>
         </a>
 
         <div className="hidden md:flex items-center gap-8">
