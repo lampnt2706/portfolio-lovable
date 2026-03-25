@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowDown, Mail } from "lucide-react";
+import { ArrowDown, Download, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const HeroSection = () => {
@@ -64,6 +64,12 @@ const HeroSection = () => {
             <a href="#contact">
               <Mail className="mr-2 h-4 w-4" />
               Contact Me
+            </a>
+          </Button>
+          <Button variant="secondary" size="lg" asChild>
+            <a href="/resume/Back_End_Developer_Java_PhamNgocTungLam.pdf" download>
+              <Download className="mr-2 h-4 w-4" />
+              Download Resume
             </a>
           </Button>
         </motion.div>
