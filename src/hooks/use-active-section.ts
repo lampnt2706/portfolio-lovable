@@ -2,6 +2,16 @@ import { useState, useEffect } from "react";
 
 const SECTION_IDS = ["about", "skills", "experience", "projects", "contact"];
 
+/** Offset (px) below fixed navbar when scrolling to section anchors */
+export const NAV_SCROLL_OFFSET = 80;
+
+function scrollBehavior(): ScrollBehavior {
+  if (typeof window === "undefined") return "smooth";
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ? "auto"
+    : "smooth";
+}
+
 export function useActiveSection() {
   const [activeSection, setActiveSection] = useState<string>("");
 

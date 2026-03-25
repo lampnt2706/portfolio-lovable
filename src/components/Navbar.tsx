@@ -1,7 +1,11 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useActiveSection, smoothScrollTo } from "@/hooks/use-active-section";
+import {
+  useActiveSection,
+  smoothScrollTo,
+  useInitialSectionScroll,
+} from "@/hooks/use-active-section";
 
 const navItems = [
   { label: "About", href: "#about" },
