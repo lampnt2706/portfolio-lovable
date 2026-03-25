@@ -1,6 +1,7 @@
-import { useState, useCallback } from "react";
+import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useActiveSection, smoothScrollTo } from "@/hooks/use-active-section";
 
 const navItems = [
   { label: "About", href: "#about" },
@@ -12,34 +13,38 @@ const navItems = [
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const activeSection = useActiveSection();
 
-  const scrollToSection = useCallback((e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
-    if (href === "#") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-      return;
-    }
-    const el = document.querySelector(href);
-    if (el) {
-      const offset = 80; // navbar height + padding
-      const top = el.getBoundingClientRect().top + window.scrollY - offset;
-      window.scrollTo({ top, behavior: "smooth" });
-    }
-  }, []);
+    smoothScrollTo(href);
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
-        <a href="#" onClick={(e) => scrollToSection(e, "#")} className="font-mono text-sm font-semibold text-foreground">
+        <a
+          href="#"
+          onClick={(e) => handleClick(e, "#")}
+          className="font-mono text-sm font-semibold text-foreground"
+        >
           <span className="text-primary">&lt;</span>Lam<span className="text-primary">/&gt;</span>
         </a>
 
         <div className="hidden md:flex items-center gap-8">
-          {navItems.map((item) => (
-            <a key={item.href} href={item.href} onClick={(e) => scrollToSection(e, item.href)} className="nav-link">
-              {item.label}
-            </a>
-          ))}
+          {navItems.map((item) => {
+            const isActive = `#${activeSection}` === item.href;
+            return (
+              <a
+                key={item.href}
+                href={item.href}
+                onClick={(e) => handleClick(e, item.href)}
+                className={`nav-link ${isActive ? "nav-link-active" : ""}`}
+              >
+                {item.label}
+              </a>
+            );
+          })}
         </div>
 
         <button
@@ -60,16 +65,22 @@ const Navbar = () => {
             className="md:hidden overflow-hidden bg-background border-b border-border"
           >
             <div className="px-6 py-4 flex flex-col gap-4">
-              {navItems.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  className="nav-link text-base"
-                  onClick={(e) => { scrollToSection(e, item.href); setMobileOpen(false); }}
-                >
-                  {item.label}
-                </a>
-              ))}
+              {navItems.map((item) => {
+                const isActive = `#${activeSection}` === item.href;
+                return (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    className={`nav-link text-base ${isActive ? "nav-link-active" : ""}`}
+                    onClick={(e) => {
+                      handleClick(e, item.href);
+                      setMobileOpen(false);
+                    }}
+                  >
+                    {item.label}
+                  </a>
+                );
+              })}
             </div>
           </motion.div>
         )}

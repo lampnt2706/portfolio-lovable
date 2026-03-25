@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowDown, Download, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { smoothScrollTo } from "@/hooks/use-active-section";
 
 const HeroSection = () => {
   return (
@@ -55,13 +56,13 @@ const HeroSection = () => {
           className="flex flex-col sm:flex-row gap-4"
         >
           <Button size="lg" asChild>
-            <a href="#projects">
+            <a href="#projects" onClick={(e) => { e.preventDefault(); smoothScrollTo("#projects"); }}>
               View Projects
               <ArrowDown className="ml-2 h-4 w-4" />
             </a>
           </Button>
           <Button variant="outline" size="lg" asChild>
-            <a href="#contact">
+            <a href="#contact" onClick={(e) => { e.preventDefault(); smoothScrollTo("#contact"); }}>
               <Mail className="mr-2 h-4 w-4" />
               Contact Me
             </a>
