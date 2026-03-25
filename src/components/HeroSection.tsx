@@ -75,9 +75,9 @@ const HeroSection = () => {
           className="mt-16 terminal-block p-4 text-left max-w-lg w-full"
         >
           <div className="flex items-center gap-2 mb-3">
-            <div className="w-3 h-3 rounded-full bg-red-500/80" />
-            <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
-            <div className="w-3 h-3 rounded-full bg-green-500/80" />
+            <div className="w-3 h-3 rounded-full bg-primary/80" />
+            <div className="w-3 h-3 rounded-full bg-muted-foreground/40" />
+            <div className="w-3 h-3 rounded-full bg-muted-foreground/20" />
             <span className="ml-2 text-xs opacity-50 font-mono">terminal</span>
           </div>
           <code className="text-xs leading-relaxed block">
