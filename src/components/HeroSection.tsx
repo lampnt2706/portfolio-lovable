@@ -80,12 +80,12 @@ const HeroSection = () => {
             <div className="w-3 h-3 rounded-full bg-muted-foreground/20" />
             <span className="ml-2 text-xs opacity-50 font-mono">terminal</span>
           </div>
-          <code className="text-xs leading-relaxed block">
+          <code className="text-xs leading-relaxed block" style={{ color: "hsl(var(--terminal-text))" }}>
             <span className="text-primary">const</span> developer = {"{"}<br />
-            &nbsp;&nbsp;name: <span className="text-yellow-400">"Pham Ngoc Tung Lam"</span>,<br />
-            &nbsp;&nbsp;role: <span className="text-yellow-400">"Backend Developer"</span>,<br />
-            &nbsp;&nbsp;stack: [<span className="text-green-400">"Java"</span>, <span className="text-green-400">"Spring Boot"</span>, <span className="text-green-400">"PostgreSQL"</span>],<br />
-            &nbsp;&nbsp;available: <span className="text-blue-400">true</span><br />
+            &nbsp;&nbsp;name: <span style={{ color: "#e5c07b" }}>"Pham Ngoc Tung Lam"</span>,<br />
+            &nbsp;&nbsp;role: <span style={{ color: "#e5c07b" }}>"Backend Developer"</span>,<br />
+            &nbsp;&nbsp;stack: [<span style={{ color: "#98c379" }}>"Java"</span>, <span style={{ color: "#98c379" }}>"Spring Boot"</span>, <span style={{ color: "#98c379" }}>"PostgreSQL"</span>],<br />
+            &nbsp;&nbsp;available: <span style={{ color: "#61afef" }}>true</span><br />
             {"}"};
           </code>
         </motion.div>
