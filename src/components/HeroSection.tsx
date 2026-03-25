@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowDown, Download, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { smoothScrollTo } from "@/hooks/use-active-section";
 
 const HeroSection = () => {
   return (
