@@ -65,7 +65,7 @@ const Navbar = () => {
                   key={item.href}
                   href={item.href}
                   className="nav-link text-base"
-                  onClick={() => setMobileOpen(false)}
+                  onClick={(e) => { scrollToSection(e, item.href); setMobileOpen(false); }}
                 >
                   {item.label}
                 </a>
