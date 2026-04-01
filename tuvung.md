@@ -498,6 +498,7 @@
 환경	environment, nature; surroundings
 환기	ventilation
 환상적	Fantastic (fantasy-like)
+============================================
 회비	membership fee, dues
 회식	a get-together; company lunch/dinner
 회원	member
@@ -997,6 +998,7 @@
 풀다	untie
 풀리다	come untied
 피하다	avoid
+==================================
 합치다	unite
 해결하다	settle
 해내다	accomplish
